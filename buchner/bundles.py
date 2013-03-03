@@ -1,0 +1,3 @@
+CSS_BUNDLES = {}
+
+JS_BUNDLES = {}
