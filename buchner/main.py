@@ -1,7 +1,8 @@
+from types import ModuleType, FunctionType
+
 from flask import Flask
 from flask.ext.funnel import Funnel
 from flask.ext.mobility import Mobility
-from types import ModuleType, FunctionType
 
 from .errors import register_error_handlers
 
@@ -30,5 +31,11 @@ def create_app(settings):
     @app.context_processor
     def context_processor():
         return dict(config=app.config)
+
+    @app.teardown_request
+    def teardown_request():
+        # Remove the database session if it exists
+        if app.db_session:
+            app.db_session.remove()
 
     return app
