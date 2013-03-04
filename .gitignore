@@ -2,4 +2,5 @@
 
 settings_local.py
 
-node_modules
+node_modules/
+docs/_build
