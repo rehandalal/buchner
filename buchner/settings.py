@@ -1,6 +1,6 @@
 import os
 
-from .helpers import truthiness
+from buchner.helpers import truthiness
 
 def abspath(path):
     return os.path.abspath(os.path.relpath(path, os.path.dirname(__file__)))

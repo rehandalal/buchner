@@ -1,1 +1,1 @@
-from .settings import *
+from buchner.settings import *

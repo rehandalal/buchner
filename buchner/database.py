@@ -4,8 +4,8 @@ from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
-def create_db(app):
-    if not app.db_session:
+def get_session(app):
+    if not hasattr(app, 'db_session'):
         # Create the engine
         engine = create_engine(app.config.get('DATABASE_URL'),
                                convert_unicode=True)

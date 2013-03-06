@@ -1,6 +1,6 @@
 from flask import render_template, request
 
-from .helpers import json_requested, jsonify
+from buchner.helpers import json_requested, jsonify
 
 
 def register_error_handlers(app):
