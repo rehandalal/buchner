@@ -1,6 +1,7 @@
 import json
 
 from flask import Response, request
+from types import BooleanType
 
 
 def json_requested():
@@ -22,8 +23,11 @@ def jsonify(obj):
 
 def truthiness(str):
     """Returns a boolean from a string"""
-    try:
-        return (str(str).lower() == 'true' or str(str).lower() == 't'
-                or str == '1')
-    except (TypeError, ValueError):
-        return False
+    if isinstance(str, BooleanType):
+        return str
+    else:
+        try:
+            return (str(str).lower() == 'true' or str(str).lower() == 't'
+                    or str == '1')
+        except (TypeError, ValueError):
+            return False

@@ -7,6 +7,8 @@ def abspath(path):
 
 DEBUG = truthiness(os.environ.get('DEBUG', False))
 
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
 BLUEPRINTS = ()
 
 # Flask-Funnel
