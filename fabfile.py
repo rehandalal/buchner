@@ -1,6 +1,8 @@
 from fabric.api import env, local
 
+
 env.hosts = ['localhost']
+
 
 def npm_install():
     """Correctly runs npm install"""

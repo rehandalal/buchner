@@ -15,8 +15,9 @@ manager = Manager(app)
 # Add the Flask-Funnel manager as a submanager
 manager.add_command('funnel', funnel_manager)
 
-app_path = os.path.join(os.path.relpath(os.path.dirname(__file__), os.getcwd()),
-                        'buchner')
+app_path = os.path.join(
+    os.path.relpath(os.path.dirname(__file__), os.getcwd()),
+    'buchner')
 
 db_repo = os.path.join(app_path, 'migrations')
 db_url = app.config.get('DATABASE_URL')

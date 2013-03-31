@@ -1,7 +1,6 @@
 import json
 
 from flask import Response, request
-from types import BooleanType
 
 
 def json_requested():
