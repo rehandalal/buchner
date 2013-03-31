@@ -1,5 +1,6 @@
-from buchner.database.classes import Model
 from sqlalchemy import Column, Integer
+
+from PROJECTMODULE.database.classes import Model
 
 
 class Sample(Model):

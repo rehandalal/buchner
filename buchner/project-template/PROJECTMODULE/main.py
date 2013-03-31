@@ -4,21 +4,7 @@ from flask import Flask
 from flask.ext.funnel import Funnel
 from flask.ext.mobility import Mobility
 
-from buchner.errors import register_error_handlers
-
-
-def _get_apps_full_names(apps):
-    names = []
-    for app in apps:
-        parts = []
-        if not __name__ == '__main__':
-            parts = __name__.split('.')
-            parts.pop()
-        parts.append('apps')
-        parts.append(app)
-
-        names.append('.'.join(parts))
-    return names
+from PROJECTMODULE.errors import register_error_handlers
 
 
 def create_app(settings):
@@ -34,18 +20,17 @@ def create_app(settings):
 
     # Bootstrapping
     if 'INSTALLED_APPS' in app.config:
-        app.installed_apps = _get_apps_full_names(
-            app.config.get('INSTALLED_APPS'))
+        app.installed_apps = app.config.get('INSTALLED_APPS', [])
 
     # Extensions
     Funnel(app)
     Mobility(app)
 
     # Register blueprints
-    for a in app.installed_apps:
-        # Register blueprints
+    for app_path in app.installed_apps:
         app.register_blueprint(
-            getattr(__import__('%s.views' % a, fromlist=['blueprint']),
+            getattr(__import__('{0}.views'.format(app_path),
+                               fromlist=['blueprint']),
                     'blueprint'))
 
     # Register error handlers

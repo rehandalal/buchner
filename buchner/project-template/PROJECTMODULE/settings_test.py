@@ -1,4 +1,4 @@
-from buchner.settings import *
+from PROJECTMODULE.settings import *
 
 TESTING = True
 

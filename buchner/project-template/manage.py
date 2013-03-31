@@ -7,7 +7,7 @@ from flask.ext.funnel.manager import manager as funnel_manager
 from migrate.exceptions import DatabaseAlreadyControlledError
 from migrate.versioning import api as migrate_api
 
-from buchner.wsgi import app
+from PROJECTMODULE.wsgi import app
 
 
 manager = Manager(app)
@@ -15,10 +15,7 @@ manager = Manager(app)
 # Add the Flask-Funnel manager as a submanager
 manager.add_command('funnel', funnel_manager)
 
-app_path = os.path.join(
-    os.path.relpath(os.path.dirname(__file__), os.getcwd()),
-    'buchner')
-
+app_path = os.path.join(os.path.dirname(__file__), 'PROJECTMODULE')
 db_repo = os.path.join(app_path, 'migrations')
 db_url = app.config.get('DATABASE_URL')
 

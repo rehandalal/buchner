@@ -1,6 +1,3 @@
 *.py[co]
 
-settings_local.py
-
-node_modules/
 docs/_build
