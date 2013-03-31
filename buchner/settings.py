@@ -9,7 +9,7 @@ DEBUG = truthiness(os.environ.get('DEBUG', False))
 
 DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///buchner_app.db')
 
-BLUEPRINTS = []
+INSTALLED_APPS = []
 
 # Flask-Funnel
 JAVA_BIN = os.environ.get('JAVA_BIN', 'java')
