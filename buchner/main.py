@@ -7,11 +7,23 @@ from flask.ext.mobility import Mobility
 from buchner.errors import register_error_handlers
 
 
+def _get_apps_full_names(apps):
+    names = []
+    for app in apps:
+        parts = []
+        if not __name__ == '__main__':
+            parts = __name__.split('.')
+            parts.pop()
+        parts.append('apps')
+        parts.append(app)
+
+        names.append('.'.join(parts))
+    return names
+
+
 def create_app(settings):
     """Create a new Flask application"""
     app = Flask(__name__)
-    Funnel(app)
-    Mobility(app)
 
     # Import settings from file
     for name in dir(settings):
@@ -20,10 +32,21 @@ def create_app(settings):
                 or isinstance(value, FunctionType)):
             app.config[name] = value
 
+    # Bootstrapping
+    if 'INSTALLED_APPS' in app.config:
+        app.installed_apps = _get_apps_full_names(
+            app.config.get('INSTALLED_APPS'))
+
+    # Extensions
+    Funnel(app)
+    Mobility(app)
+
     # Register blueprints
-    for blueprint in app.config.get('BLUEPRINTS', ()):
+    for a in app.installed_apps:
+        # Register blueprints
         app.register_blueprint(
-            getattr(__import__(blueprint, fromlist=['blueprint']), 'blueprint'))
+            getattr(__import__('%s.views' % a, fromlist=['blueprint']),
+                    'blueprint'))
 
     # Register error handlers
     register_error_handlers(app)
@@ -33,7 +56,7 @@ def create_app(settings):
         return dict(config=app.config)
 
     @app.teardown_request
-    def teardown_request():
+    def teardown_request(exception=None):
         # Remove the database session if it exists
         if hasattr(app, 'db_session'):
             app.db_session.close()
