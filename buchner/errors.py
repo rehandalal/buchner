@@ -11,6 +11,8 @@ def register_error_handlers(app):
 
 def json_error(code, message):
     """Returns a JSON-ified error object"""
+    # Message can be an unserializable object.
+    message = repr(message)
     return jsonify(dict(request=request.path, message=message)), code
 
 
@@ -31,4 +33,4 @@ def not_found(message=None):
 def internal_server_error(message=None):
     """A generic 500 handler"""
     message = message or 'Something went wrong.'
-    return error(500, message, '500.html')
+    return error(500, message, 'errors/500.html')

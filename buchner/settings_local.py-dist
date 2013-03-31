@@ -1,0 +1,6 @@
+# By default, eugene uses a sqlite database. If you want something
+# different, then uncomment the next line to specify a DATABASE_URL
+# DATABASE_URL = ''
+
+# If you want this in DEBUG mode, uncomment this line
+# DEBUG = True

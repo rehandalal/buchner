@@ -7,9 +7,9 @@ def abspath(path):
 
 DEBUG = truthiness(os.environ.get('DEBUG', False))
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
+DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite:///buchner_app.db')
 
-BLUEPRINTS = ()
+BLUEPRINTS = []
 
 # Flask-Funnel
 JAVA_BIN = os.environ.get('JAVA_BIN', 'java')
