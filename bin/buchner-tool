@@ -7,4 +7,4 @@ from buchner.cmdline import cmdline_handler
 
 
 if __name__ == '__main__':
-    sys.exit(cmdline_handler("buchner-cmd", sys.argv[1:]))
+    sys.exit(cmdline_handler("buchner-tool", sys.argv[1:]))

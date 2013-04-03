@@ -42,7 +42,7 @@ Create a project
 
 Once you have it installed, you can create a new project::
 
-    $ buchner-cmd createproject <PROJECTNAME>
+    $ buchner-tool createproject <PROJECTNAME>
 
 
 It'll create the project skeleton in the current working directory. You
