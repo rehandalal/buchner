@@ -41,5 +41,5 @@ setup(
         'Operating System :: MacOS :: MacOS X',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
-        ]
+    ]
 )

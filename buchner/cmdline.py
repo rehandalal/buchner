@@ -28,7 +28,7 @@ DIGIT_TO_WORD = {
     '7': 'seven',
     '8': 'eight',
     '9': 'nine'
-    }
+}
 
 
 def clean_project_module(s):
@@ -69,7 +69,7 @@ def create_project(command, argv):
             'ERROR: "{0}" is not a valid Python module name.'.format(
                 new_project_module))
         return 1
-    
+
     project_module = new_project_module
     project_dir = os.path.abspath(project_module)
 
@@ -115,8 +115,7 @@ def create_project(command, argv):
 
 
 HANDLERS = (
-    ('createproject', create_project, 'Creates a new buchner project.'),
-    )
+    ('createproject', create_project, 'Creates a new buchner project.'),)
 
 
 def cmdline_handler(scriptname, argv):
