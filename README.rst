@@ -49,15 +49,15 @@ It'll create the project skeleton in the current working directory. You
 can run your project immediately::
 
     $ cd <PROJECTMODULE>
-    $ mkvirtualenv
+    $ mkvirtualenv <ENVNAME>
     $ pip install -r requirements.txt
     $ python manage.py runserver
 
     Open browser and view http://127.0.0.1:5000/
 
 
-Run tests
-=========
+Run buchner tests
+=================
 
 You need to install the development requirements::
 
@@ -67,3 +67,9 @@ You need to install the development requirements::
 After that, you can run tests with::
 
     nosetests
+
+
+Build buchner docs
+==================
+
+Docs coming!
