@@ -1,6 +1,13 @@
 import json
+import subprocess
 
 from flask import Response, request
+
+
+def call_command(cmd, verbose=False):
+    if verbose:
+        print cmd
+    subprocess.call(cmd)
 
 
 def json_requested():

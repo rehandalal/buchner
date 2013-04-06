@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import os
 
+from buchner.helpers import call_command
 from flask.ext.script import Manager
 from flask.ext.funnel.manager import manager as funnel_manager
 
@@ -72,6 +73,17 @@ def new_migration(description):
     """Create a new migration"""
     migrate_api.script(description, db_repo)
     print 'New migration script created.'
+
+
+@manager.command
+def install_npm_modules():
+    """Uses npm to dependencies in node.json"""
+    # This is a little weird, but we do it this way because if you
+    # have package.json, then heroku thinks this might be a node.js
+    # app.
+    call_command('cp node.json package.json', verbose=True)
+    call_command('npm install', verbose=True)
+    call_command('rm package.json', verbose=True)
 
 
 if __name__ == '__main__':
