@@ -109,6 +109,21 @@ for database stuff.
 Migrations are in ``PROJECTMODULE/migrations/``.
 
 
+Creating the initial migration
+------------------------------
+
+To create your initial database schema, you need to create the models
+in the various places. Then do::
+
+    $ python manage.py new_migration "initial"
+
+
+That'll create your initial migration. Open that file and copy/paste
+your schema definitions into it.
+
+If you have problems, bug Rehan.
+
+
 CSS
 ===
 
