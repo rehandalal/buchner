@@ -8,4 +8,6 @@ sqlalchemy-migrate==0.7.2
 WTForms==1.0.3
 
 gunicorn==0.14.5
-buchner
+# TODO: Fix this so that it's "buchner" and not this crazy
+# git master thing.
+https://github.com/rehandalal/buchner/zipball/master#egg=buchner
