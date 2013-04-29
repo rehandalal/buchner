@@ -24,11 +24,11 @@ YUI_COMPRESSOR_BIN = os.environ.get('YUI_COMPRESSOR_BIN',
 LESS_BIN = os.environ.get('LESS_BIN', 'lessc')
 
 try:
-    from bundles import *
+    from PROJECTMODULE.bundles import *
 except ImportError:
     pass
 
 try:
-    from settings_local import *
+    from PROJECTMODULE.settings_local import *
 except ImportError:
     pass
