@@ -1,6 +1,6 @@
 buchner
 Flask==0.9
-Flask-Funnel==0.1.2
+Flask-Funnel==0.1.7
 Flask-Mobility==0.1
 Flask-Script==0.5.3
 nose==1.2.1
