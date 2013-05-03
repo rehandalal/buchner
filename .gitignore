@@ -2,5 +2,7 @@
 *.swp
 *.py[co]
 
+build
+dist
 docs/_build
 buchner.egg-info
