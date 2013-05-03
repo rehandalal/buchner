@@ -36,7 +36,7 @@ setup(
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
-        'License :: OSI Approved :: MIT License'
+        'License :: OSI Approved :: BSD',
         'Operating System :: POSIX :: Linux',
         'Operating System :: MacOS :: MacOS X',
         'Programming Language :: Python',
