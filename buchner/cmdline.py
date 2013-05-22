@@ -45,8 +45,8 @@ def perror(s):
     print s
 
 
-def create_project(command, argv):
-    parser = build_parser('%prog createproject <PROJECTNAME>')
+def create(command, argv):
+    parser = build_parser('%prog create <PROJECTNAME>')
     (options, args) = parser.parse_args()
 
     if not argv:
@@ -115,7 +115,7 @@ def create_project(command, argv):
 
 
 HANDLERS = (
-    ('createproject', create_project, 'Creates a new buchner project.'),)
+    ('create', create, 'Creates a new buchner project.'),)
 
 
 def cmdline_handler(scriptname, argv):
