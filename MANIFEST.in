@@ -1,6 +1,9 @@
 include CONTRIBUTORS
 include LICENSE
 include README.rst
+include nose.cfg
+include requirements-dev.txt
+
 recursive-include buchner *
 recursive-exclude buchner *.pyc
 recursive-exclude buchner *.pyo
@@ -8,3 +11,4 @@ recursive-include docs *
 recursive-exclude docs *.pyc
 recursive-exclude docs *.pyo
 prune docs/_build
+
